@@ -21,6 +21,11 @@
         </activity>
         <activity android:name=".CreateFolderActivity" />
         <activity android:name=".CreateFolderInFolderActivity" />
+        <activity android:name=".listContentsActivity" />
+        <activity android:name=".EditFolderActivity" />
+        <activity android:name=".CustomFolderNameActivity" />
+        <activity android:name=".UpdateFolderActivity" />
+        <activity android:name=".DeleteFolderActivity" />
     </application>
 
 </manifest>

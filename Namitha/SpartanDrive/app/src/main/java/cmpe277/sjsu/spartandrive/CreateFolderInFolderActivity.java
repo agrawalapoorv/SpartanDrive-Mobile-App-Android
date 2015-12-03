@@ -1,23 +1,11 @@
 package cmpe277.sjsu.spartandrive;
-
+//DELETE THIS
 /**
  * Created by namithashetty on 11/25/15.
  */
-/**
- * Copyright 2013 Google Inc. All Rights Reserved.
- *
- *  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
- * in compliance with the License. You may obtain a copy of the License at
- *
- *  http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software distributed under the
- * License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
- * express or implied. See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.drive.Drive;
@@ -27,17 +15,28 @@ import com.google.android.gms.drive.DriveId;
 import com.google.android.gms.drive.MetadataChangeSet;
 
 public class CreateFolderInFolderActivity extends ConnectionActivity {
+    private static final String TAG = "PickFolderWithOpenerActivity";
+
 
     @Override
     public void onConnected(Bundle connectionHint) {
         super.onConnected(connectionHint);
-        Drive.DriveApi.fetchDriveId(getGoogleApiClient(), "0B8m6vocGpnl3TVh6bnJ0eUxJYlU")
-                .setResultCallback(idCallback);
+        Log.i(TAG, "Request code" + getIntent().getExtras().getString("folderName"));
+        //Drive.DriveApi.fetchDriveId(getGoogleApiClient(), "0B8m6vocGpnl3VGVzelctREUxYlk")
+          //      .setResultCallback(idCallback);
+        String folderName = getIntent().getExtras().getString("folderName");
+        DriveId driveId = Drive.DriveApi.getRootFolder(getGoogleApiClient()).getDriveId();
+        DriveFolder folder = driveId.asDriveFolder();
+        MetadataChangeSet changeSet = new MetadataChangeSet.Builder()
+                .setTitle(folderName).build();
+        folder.createFolder(getGoogleApiClient(), changeSet)
+                .setResultCallback(createFolderCallback);
     }
 
     final ResultCallback<DriveApi.DriveIdResult> idCallback = new ResultCallback<DriveApi.DriveIdResult>() {
         @Override
         public void onResult(DriveApi.DriveIdResult result) {
+            String folderName = getIntent().getExtras().getString("folderName");
             if (!result.getStatus().isSuccess()) {
                 showMessage("Cannot find DriveId. Are you authorized to view this file?");
                 return;
@@ -45,7 +44,7 @@ public class CreateFolderInFolderActivity extends ConnectionActivity {
             DriveId driveId = result.getDriveId();
             DriveFolder folder = driveId.asDriveFolder();
             MetadataChangeSet changeSet = new MetadataChangeSet.Builder()
-                    .setTitle("MyNewFolder").build();
+                    .setTitle(folderName).build();
             folder.createFolder(getGoogleApiClient(), changeSet)
                     .setResultCallback(createFolderCallback);
         }

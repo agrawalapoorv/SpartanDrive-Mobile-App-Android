@@ -20,7 +20,7 @@ public abstract class ConnectionActivity extends Activity implements GoogleApiCl
     private GoogleApiClient mGoogleApiClient;
     private static final String TAG = "ConnectionDriveActivity";
     protected static final int REQUEST_CODE_RESOLUTION = 1;
-    public static final String EXISTING_FOLDER_ID = "0B8m6vocGpnl3VGVzelctREUxYlk";
+    //public static final String EXISTING_FOLDER_ID = "0B8m6vocGpnl3VGVzelctREUxYlk";
 
     @Override
     protected void onResume() {
