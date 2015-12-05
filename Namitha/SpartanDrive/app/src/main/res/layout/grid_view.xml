@@ -4,6 +4,7 @@ android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 android:padding="5dp" >
 
+
 <ImageView
     android:id="@+id/logo"
     android:layout_width="120px"
@@ -12,7 +13,6 @@ android:padding="5dp" >
     android:layout_marginRight="5px"
     android:layout_marginTop="5px">
 </ImageView>
-
 <TextView
     android:id="@+id/label"
     android:layout_width="160px"

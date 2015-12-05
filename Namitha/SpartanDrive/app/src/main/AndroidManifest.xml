@@ -26,6 +26,9 @@
         <activity android:name=".CustomFolderNameActivity" />
         <activity android:name=".UpdateFolderActivity" />
         <activity android:name=".DeleteFolderActivity" />
+        <activity android:name=".SearchFileBasedOnTitleActivity" />
+        <activity android:name=".SearchPopUpActivity" />
+
     </application>
 
 </manifest>

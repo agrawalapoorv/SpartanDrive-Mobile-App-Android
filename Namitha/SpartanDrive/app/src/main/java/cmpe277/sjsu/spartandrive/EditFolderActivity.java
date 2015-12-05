@@ -48,18 +48,18 @@ public class EditFolderActivity extends ConnectionActivity {
                     final String folderName = v.getText().toString();
                     Log.i(TAG, "Request code" + folderName);
 
-                    Button dialogButton = (Button) dialog.findViewById(R.id.editFolder);
-                    dialogButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
+                    //Button dialogButton = (Button) dialog.findViewById(R.id.editFolder);
+                    //dialogButton.setOnClickListener(new View.OnClickListener() {
+                      //  @Override
+                        //public void onClick(View view) {
                             String driveId = getIntent().getExtras().getString("driveId");
                             Intent intent = new Intent(EditFolderActivity.this, UpdateFolderActivity.class);
                             Log.i(TAG, "Request code" + folderName);
                             intent.putExtra("folderName", folderName);
                             intent.putExtra("driveId",driveId);
                             startActivity(intent);
-                        }
-                    });
+                       // }
+                   // });
                     //Toast.makeText(EditFolderActivity.this, "Folder title updated successfully", Toast.LENGTH_SHORT).show();
                 }
                 return true;

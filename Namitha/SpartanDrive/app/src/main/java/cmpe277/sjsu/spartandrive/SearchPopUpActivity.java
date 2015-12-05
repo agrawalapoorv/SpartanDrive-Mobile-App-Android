@@ -1,29 +1,21 @@
 package cmpe277.sjsu.spartandrive;
 
-/**
- * Created by namithashetty on 12/1/15.
- */
-
-import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.content.Context;
-import android.text.Editable;
+import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.view.LayoutInflater;
-import android.view.View.OnClickListener;
-import com.google.android.gms.drive.Drive;
-import android.view.View;
-import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class CustomFolderNameActivity extends ConnectionActivity{
+/**
+ * Created by namithashetty on 12/5/15.
+ */
+public class SearchPopUpActivity extends ConnectionActivity{
     private static final String TAG = "ConnectionDriveActivity";
     final Context context = this;
     private Button button;
@@ -34,28 +26,28 @@ public class CustomFolderNameActivity extends ConnectionActivity{
 
         // custom dialog
         final Dialog dialog = new Dialog(context);
-        dialog.setContentView(R.layout.folder_name);
-        dialog.setTitle("Create a folder");
+        dialog.setContentView(R.layout.search_pop_up);
+        dialog.setTitle("Search for folders and files");
 
         // set the custom dialog components - text, image and button
-        EditText text = (EditText) dialog.findViewById(R.id.folderName);
+        EditText text = (EditText) dialog.findViewById(R.id.searchItem);
         text.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    final String folderName = v.getText().toString();
-                    Log.i(TAG, "Request code" + folderName);
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    final String searchTerm = v.getText().toString();
+                    Log.i(TAG, "Request code" + searchTerm);
 
-                   // Button dialogButton = (Button) dialog.findViewById(R.id.createFolder);
-                   // dialogButton.setOnClickListener(new OnClickListener() {
+                    //Button dialogButton = (Button) dialog.findViewById(R.id.searchTerm);
+                    //dialogButton.setOnClickListener(new View.OnClickListener() {
                        // @Override
-                        //public void onClick(View view) {
-                            Intent intent = new Intent(CustomFolderNameActivity.this, CreateFolderActivity.class);
-                            Log.i(TAG, "Request code" + folderName);
-                            intent.putExtra("folderName", folderName);
+                       // public void onClick(View view) {
+                            Intent intent = new Intent(SearchPopUpActivity.this, SearchFileBasedOnTitleActivity.class);
+                            Log.i(TAG, "Request code" + searchTerm);
+                            intent.putExtra("SearchTerm", searchTerm);
                             startActivity(intent);
                         //}
-                    //});
+                   // });
                     //Toast.makeText(CustomFolderNameActivity.this, "Folder name is:" + folderName, Toast.LENGTH_SHORT).show();
                 }
                 return true;
@@ -64,7 +56,7 @@ public class CustomFolderNameActivity extends ConnectionActivity{
 
         Button cancelButton = (Button) dialog.findViewById(R.id.cancel_action);
         // if button is clicked, close the custom dialog
-        cancelButton.setOnClickListener(new OnClickListener() {
+        cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();

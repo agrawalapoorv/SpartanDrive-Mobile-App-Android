@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -75,11 +76,22 @@ public class MainActivity extends ConnectionActivity  {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(),  CustomFolderNameActivity.class);
+                Intent intent = new Intent(getBaseContext(), CustomFolderNameActivity.class);
                 startActivity(intent);
             }
         });
 
+        FloatingActionButton search = (FloatingActionButton) findViewById(R.id.search_button);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //EditText searchText=(EditText)findViewById(R.id.searchText);
+                    //searchTerm = searchText.getText().toString();
+                Intent intent = new Intent(getBaseContext(), SearchPopUpActivity.class);
+                //intent.putExtra("searchTerm", searchTerm);
+                startActivity(intent);
+            }
+        });
 
         //Code to handle onClick for CreateFolder button
        /* final Button button = (Button) findViewById(R.id.fab);
@@ -97,11 +109,6 @@ public class MainActivity extends ConnectionActivity  {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.i(TAG, "Selected item:" + mResultsAdapter.getItem(position).getDriveId());
                 driveId = mResultsAdapter.getItem(position).getDriveId().encodeToString();
-                //String item = arg0.getItemAtPosition(i).toString();
-                // Log.i(TAG, "DriveID:" +Drive.DriveApi.fetchDriveId(getGoogleApiClient(), "i"));
-                //       .setResultCallback(idCallback);
-                //Intent intent = new Intent(getBaseContext(), listContentsActivity.class);
-                //startActivity(intent);
                 //Creating the instance of PopupMenu
                 PopupMenu popup = new PopupMenu(MainActivity.this, mListViewSamples);
                 //Inflating the Popup using xml file

@@ -13,12 +13,7 @@
         android:layout_marginBottom="4dp"
         android:hint="@string/FolderName"
         android:inputType="text"
-        android:imeOptions="actionDone"/>
-    <Button
-        android:id="@+id/createFolder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/CreateFolder"/>
+        android:imeOptions="actionDone" />
     <Button
         android:id="@+id/cancel_action"
         android:layout_width="wrap_content"

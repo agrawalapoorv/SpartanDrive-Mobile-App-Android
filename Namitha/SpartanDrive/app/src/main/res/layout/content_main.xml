@@ -9,7 +9,9 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_main" tools:context="cmpe277.sjsu.spartandrive.MainActivity"
     android:weightSum="1"
-    android:baselineAligned="false">
+    android:baselineAligned="false"
+    android:orientation="vertical">
+
 
     <GridView
         android:columnWidth="100dp"
@@ -19,8 +21,8 @@
         android:stretchMode="columnWidth"
         android:gravity="center"
         android:id="@+id/listItems"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_width="351dp"
+        android:layout_height="404dp" >
 
     </GridView>
 
