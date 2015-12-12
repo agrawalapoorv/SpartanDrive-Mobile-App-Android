@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="cmpe277.sjsu.spartandrive.MainActivity">
+        <item
+            android:id="@+id/one"
+            android:title="View Content"/>
+
+        <item
+            android:id="@+id/two"
+            android:title="Edit"/>
+
+        <item
+            android:id="@+id/three"
+            android:title="Delete"/>
+
+        <item
+            android:id="@+id/four"
+            android:title="Share"/>
+
+        <item
+            android:id="@+id/five"
+            android:title="Email"/>
+</menu>
+<!-- From: file:/E:/android_workspace2/SpartanDriveV2/app/src/main/res/menu/menu_main.xml -->
