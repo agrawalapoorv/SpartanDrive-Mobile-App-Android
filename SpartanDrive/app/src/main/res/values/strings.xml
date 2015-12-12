@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SpartanDrive</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="FolderName">Folder Name</string>
+    <string name="CreateFolder">Create</string>
+    <string name="cancel">Cancel</string>
+    <string name="editFolder">Edit Title</string>
+    <string name="NewFolderName">New Folder Title</string>
+</resources>
