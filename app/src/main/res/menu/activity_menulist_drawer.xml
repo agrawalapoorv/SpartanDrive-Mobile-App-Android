@@ -7,7 +7,7 @@
             android:icon="@drawable/ic_menu_camera"
             android:title="List Files" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/Upload_Files"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Upload Files" />
         <item
@@ -15,9 +15,9 @@
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Create Files" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/Usage_Report"
             android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:title="Usage Report" />
     </group>
 
     <item android:title="Communicate">
