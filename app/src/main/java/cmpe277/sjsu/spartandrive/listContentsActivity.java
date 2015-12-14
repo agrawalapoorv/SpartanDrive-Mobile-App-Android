@@ -3,6 +3,7 @@ package cmpe277.sjsu.spartandrive;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,10 +16,11 @@ import com.google.android.gms.drive.DriveApi;
 import com.google.android.gms.drive.DriveFolder;
 import com.google.android.gms.drive.DriveId;
 
-/**
+
+/*
  * Created by namithashetty on 11/26/15.
  */
-public class listContentsActivity extends ConnectionActivity {
+public abstract class listContentsActivity extends ConnectionActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private GridView mResultsListView;
     private ViewAdapter mResultsAdapter;
@@ -35,6 +37,7 @@ public class listContentsActivity extends ConnectionActivity {
         mResultsAdapter = new ViewAdapter(this);
         mResultsListView.setAdapter(mResultsAdapter);
 
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.hide();
 
@@ -49,6 +52,8 @@ public class listContentsActivity extends ConnectionActivity {
                 Intent intent = new Intent(getBaseContext(), SearchPopUpActivity.class);
                 //intent.putExtra("searchTerm", searchTerm);
                 startActivity(intent);
+
+
             }
         });
 
@@ -129,4 +134,7 @@ public class listContentsActivity extends ConnectionActivity {
                     showMessage("Successfully listed files.");
                 }
             };
+
+
+
 }

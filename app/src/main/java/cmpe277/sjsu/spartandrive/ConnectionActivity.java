@@ -9,8 +9,11 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.drive.Drive;
+import com.google.android.gms.plus.Plus;
 
 /**
  * Created by namithashetty on 11/23/15.
@@ -28,6 +31,11 @@ public  class ConnectionActivity extends Activity implements GoogleApiClient.Con
         if (mGoogleApiClient == null) {
             mGoogleApiClient = new GoogleApiClient.Builder(this)
                     .addApi(Drive.API)
+                    .addApi(Plus.API)
+                    .addScope(new Scope(Scopes.PROFILE))
+                    .addScope(new Scope(Scopes.EMAIL))
+                    .addScope(Plus.SCOPE_PLUS_LOGIN)
+                    .addScope(Plus.SCOPE_PLUS_PROFILE)
                     .addScope(Drive.SCOPE_FILE)
                     .addScope(Drive.SCOPE_APPFOLDER) // required for App Folder sample
                     .addConnectionCallbacks(this)
@@ -62,7 +70,15 @@ public  class ConnectionActivity extends Activity implements GoogleApiClient.Con
     @Override
     public void onConnected(Bundle connectionHint) {
         Log.i(TAG, "GoogleApiClient connected");
-        startActivity(new Intent(this,Menulist.class));
+        startActivity(new Intent(this,DriveRestArctivity.class));
+
+
+/*
+        String accountName = Plus.AccountApi.getAccountName(mGoogleApiClient);
+        Log.d("Username",""+accountName);
+
+        i.putExtra("accName",accountName);*/
+
     }
 
     @Override
