@@ -88,23 +88,29 @@ public class listContentsActivity extends ConnectionActivity {
                             intent.putExtra("driveId", driveId);
                             startActivity(intent);
                         }
+                        Intent intentEdit;
                         if (item.getTitle().equals("Edit")) {
-                            Intent intent = new Intent(getBaseContext(), EditFolderActivity.class);
-                            intent.putExtra("driveId", driveId);
-                            startActivity(intent);
+                            if (folderType) {
+                                intentEdit = new Intent(getBaseContext(), EditFolderActivity.class);
+                            }
+                            else{
+                                intentEdit = new Intent(getBaseContext(), EditFileActivity.class);
+                            }
+                            intentEdit.putExtra("driveId", driveId);
+                            startActivity(intentEdit);
                         }
-                        Intent intent;
+                        Intent intentDelete;
                         if (item.getTitle().equals("Delete")) {
                             Log.i(TAG, "Request code" + folderType);
 
                             if (folderType) {
-                                intent = new Intent(getBaseContext(), DeleteFolderActivity.class);
+                                intentDelete = new Intent(getBaseContext(), DeleteFolderActivity.class);
                             }
                             else {
-                                intent = new Intent(getBaseContext(), DeleteFileActivity.class);
+                                intentDelete = new Intent(getBaseContext(), DeleteFileActivity.class);
                             }
-                            intent.putExtra("driveId", driveId);
-                            startActivity(intent);
+                            intentDelete.putExtra("driveId", driveId);
+                            startActivity(intentDelete);
                         }
                         return true;
                     }

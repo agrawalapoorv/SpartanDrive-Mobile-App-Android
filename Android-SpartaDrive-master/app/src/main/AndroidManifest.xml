@@ -32,7 +32,10 @@
         <activity android:name=".DeleteFileActivity" android:label="@string/app_name"/>
         <activity android:name=".listContentsActivity" android:label="@string/app_name"/>
         <activity android:name=".CustomFileNameActivity" android:label="@string/app_name"/>
-
+        <activity android:name=".FileCreateInRootFolderActivity" android:label="SpartanDrive"/>
+        <activity android:name=".CustomRootFileNameActivity" android:label="SpartanDrive"/>
+        <activity android:name=".UpdateFileActivity" android:label="SpartanDrive"/>
+        <activity android:name=".EditFileActivity" android:label="SpartanDrive"/>
 
         <activity
             android:name=".Menulist"
